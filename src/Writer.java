@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Writer {
     private final int id;
     private final String name;
@@ -9,11 +11,16 @@ public class Writer {
         this.name = name;
     }
 
+    public Writer(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     private int getCurrentID() {
         return currentID;
     }
 
-    public int getId() {
+    public int getID() {
         return id;
     }
 
@@ -27,5 +34,18 @@ public class Writer {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Writer writer = (Writer) o;
+        return id == writer.id && Objects.equals(name, writer.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name);
     }
 }

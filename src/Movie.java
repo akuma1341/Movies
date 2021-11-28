@@ -64,7 +64,7 @@ public class Movie {
         return id;
     }
 
-    public Set<Genre> getGenre() {
+    public Set<Genre> getGenresSet() {
         return genreSet;
     }
 
@@ -72,8 +72,12 @@ public class Movie {
         return rating;
     }
 
-    public Set<Actor> getActors() {
+    public Set<Actor> getActorsSet() {
         return actorsSet;
+    }
+
+    public Set<Writer> getWritersSet() {
+        return writersSet;
     }
 
     public String getTitle() {

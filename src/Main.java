@@ -1,11 +1,15 @@
+import java.lang.reflect.InvocationTargetException;
+import java.sql.SQLException;
+
 public class Main {
-    public static void main(String[] args) {
-        DB.fillUpDB();
+    public static void main(String[] args) throws SQLException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
 
-        DB.showAllMovies();
+        DBHandler.createConnection();
 
-        DB.getGenreInfo();
-        DB.getActorsInfo();
-        DB.getDirectorsInfo();
+        DBHandler.getGenreInfo();
+        DBHandler.getActorInfo();
+        DBHandler.getDirectorInfo();
+
+        DBHandler.closeConnection();
     }
 }
